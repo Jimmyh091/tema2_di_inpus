@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Tema2_di_inputs"
         tools:targetApi="31">
         <activity
-            android:name=".ej2"
+            android:name=".ej1"
             android:exported="false" />
         <activity
-            android:name=".ej1"
+            android:name=".ej2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
