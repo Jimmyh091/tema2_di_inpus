@@ -22,12 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         var boton = findViewById<Button>(R.id.button)
         boton.setOnClickListener {
-            validarNombre()
-            validarEdad()
+            val nombreCorrecto = validarNombre()
+            val edadCorrecta = validarEdad()
+
+            if (nombreCorrecto && edadCorrecta) true // mostrar mainActivity
         }
     }
 
-    fun validarNombre(){
+    fun validarNombre() : Boolean{
 
         var tietNombre = findViewById<TextInputEditText>(R.id.tiet1)
 
@@ -45,21 +47,28 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+        return esCorrecto
     }
 
-    fun validarEdad(){
+    fun validarEdad() : Boolean{
 
         var tietEdad = findViewById<TextInputEditText>(R.id.tiet2)
         val edad = tietEdad.text
 
+        var esCorrecto = true
+
         if (edad != null && edad.isNotEmpty()) {
             if (edad.toString().toInt() < 18){
                 tietEdad.setError("Debes ser mayor de edad")
+                esCorrecto = false
             }else{
                 tietEdad.setError(null)
             }
+        }else{
+            esCorrecto
         }
 
-
+        return esCorrecto
     }
 }
